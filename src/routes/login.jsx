@@ -9,7 +9,7 @@ import {
   Image,
   Center,
 } from "@chakra-ui/react";
-import Logo from "../assets/logo.jpg";
+import Logo from "../assets/logo.png";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/login")({

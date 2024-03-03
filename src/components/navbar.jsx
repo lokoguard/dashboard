@@ -25,7 +25,7 @@ export default function Navbar() {
       py="4"
       mb="20px"
       justify="space-between"
-      borderBottom="2px"
+      borderBottom="1px"
       borderColor="gray.200"
     >
       <Image src={Logo} h="10" w="10" mr="5" />

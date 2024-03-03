@@ -1,4 +1,4 @@
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 
 import {
   Table,
@@ -10,9 +10,8 @@ import {
   Td,
   TableCaption,
   TableContainer,
+  Box,
 } from "@chakra-ui/react";
-
-import Navbar from "../components/navbar";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -20,13 +19,8 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div>
-      <Navbar />
-
-      <h3>Welcome Home!</h3>
-      <Link to="login">Login</Link>
-
-      <TableContainer>
+    <Box mx="5">
+      <TableContainer borderWidth="1px" borderRadius="md">
         <Table variant="simple">
           <TableCaption>Imperial to metric conversion factors</TableCaption>
           <Thead>
@@ -62,6 +56,6 @@ function Index() {
           </Tfoot>
         </Table>
       </TableContainer>
-    </div>
+    </Box>
   );
 }

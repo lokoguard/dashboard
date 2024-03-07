@@ -13,7 +13,6 @@ function LayoutComponent() {
     })
 
     function linkbutton(label, isActive) {
-        console.log("hemlo")
         return <Button colorScheme={isActive ? "teal" : "gray"} rounded="full">{label}</Button>
     }
 

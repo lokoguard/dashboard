@@ -11,10 +11,20 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as SenderImport } from './routes/sender'
 import { Route as LoginImport } from './routes/login'
 import { Route as IndexImport } from './routes/index'
+import { Route as SenderIdLogsRouteImport } from './routes/sender/$id/logs.route'
+import { Route as SenderIdIssuesRouteImport } from './routes/sender/$id/issues.route'
+import { Route as SenderIdCrashlyticsRouteImport } from './routes/sender/$id/crashlytics.route'
+import { Route as SenderIdAnalyticsRouteImport } from './routes/sender/$id/analytics.route'
 
 // Create/Update Routes
+
+const SenderRoute = SenderImport.update({
+  path: '/sender',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const LoginRoute = LoginImport.update({
   path: '/login',
@@ -24,6 +34,26 @@ const LoginRoute = LoginImport.update({
 const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
+} as any)
+
+const SenderIdLogsRouteRoute = SenderIdLogsRouteImport.update({
+  path: '/$id/logs',
+  getParentRoute: () => SenderRoute,
+} as any)
+
+const SenderIdIssuesRouteRoute = SenderIdIssuesRouteImport.update({
+  path: '/$id/issues',
+  getParentRoute: () => SenderRoute,
+} as any)
+
+const SenderIdCrashlyticsRouteRoute = SenderIdCrashlyticsRouteImport.update({
+  path: '/$id/crashlytics',
+  getParentRoute: () => SenderRoute,
+} as any)
+
+const SenderIdAnalyticsRouteRoute = SenderIdAnalyticsRouteImport.update({
+  path: '/$id/analytics',
+  getParentRoute: () => SenderRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -38,11 +68,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
     }
+    '/sender': {
+      preLoaderRoute: typeof SenderImport
+      parentRoute: typeof rootRoute
+    }
+    '/sender/$id/analytics': {
+      preLoaderRoute: typeof SenderIdAnalyticsRouteImport
+      parentRoute: typeof SenderImport
+    }
+    '/sender/$id/crashlytics': {
+      preLoaderRoute: typeof SenderIdCrashlyticsRouteImport
+      parentRoute: typeof SenderImport
+    }
+    '/sender/$id/issues': {
+      preLoaderRoute: typeof SenderIdIssuesRouteImport
+      parentRoute: typeof SenderImport
+    }
+    '/sender/$id/logs': {
+      preLoaderRoute: typeof SenderIdLogsRouteImport
+      parentRoute: typeof SenderImport
+    }
   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([IndexRoute, LoginRoute])
+export const routeTree = rootRoute.addChildren([
+  IndexRoute,
+  LoginRoute,
+  SenderRoute.addChildren([
+    SenderIdAnalyticsRouteRoute,
+    SenderIdCrashlyticsRouteRoute,
+    SenderIdIssuesRouteRoute,
+    SenderIdLogsRouteRoute,
+  ]),
+])
 
 /* prettier-ignore-end */

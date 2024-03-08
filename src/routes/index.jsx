@@ -3,7 +3,15 @@ import {
     useDisclosure,
     Badge, Box, Button, Center, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr, Flex, Code,
 } from "@chakra-ui/react";
-
+import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+} from '@chakra-ui/react'
 export const Route = createFileRoute("/")({
     component: Index,
 });

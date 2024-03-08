@@ -1,0 +1,1 @@
+// export const colorCodes = ["#2C73D2","#FF9671", "#0089BA", "#008F7A","#F9F871", "#D65DB1", "#C2791E", "#6B5F80"]

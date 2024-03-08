@@ -43,7 +43,7 @@ export default function Navbar() {
                 borderBottom="1px"
                 borderColor="gray.200"
             >
-                <Image src={Logo} h="10" w="10" mr="5"/>
+                <Link to="/" ><Image src={Logo} h="10" w="10" mr="5"/></Link>
                 <Flex gap="8px">
                     <Menu>
                         <MenuButton as={Button} rightIcon={<ChevronDownIcon/>}>

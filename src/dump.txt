@@ -1,0 +1,22 @@
+model LogMessage {
+    id              Int    @id @default(autoincrement()) // task id
+    version         Int
+    facilityMessage String
+    facilityLevel   String
+    severityMessage String
+    severityLevel   String
+    hostname        String
+    appname         String
+    message         String
+    timestamp       Int
+}
+
+
+// Crash Logs
+model CrashLog {
+    id         Int    @id @default(autoincrement())
+    timestamp  Int
+    message    String
+    stackTrace String
+    otherInfo  Json   @default("{}")
+}

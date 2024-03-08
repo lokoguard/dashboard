@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh!important;
+    width: 100vw!important;
+    overflow: hidden;
+}
+
+#app{
+    height: 100%;
+    width: 100%;
+}
+.blockly-container {
+    width: 100%;
+    height: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.blockly-container .editor {
+    width: 100%;
+    height: 90%;
+}
+
+.blocklyFlyoutScrollbar {
+    display: none;
+}

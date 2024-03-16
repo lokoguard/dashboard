@@ -1,9 +1,11 @@
-import {createFileRoute} from "@tanstack/react-router";
+import {createFileRoute, useParams} from "@tanstack/react-router";
 import DataTable from "react-data-table-component";
 // TODO: delete it
 import {faker} from '@faker-js/faker';
-import {useMemo, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import {Box, Flex, Input} from "@chakra-ui/react";
+import {get} from "../../../request.js";
+import toast from "react-hot-toast";
 
 export const Route = createFileRoute("/sender/$id/logs")({
     component: Index,
@@ -23,6 +25,11 @@ const createUsers = (numUsers = 5) => new Array(numUsers).fill(undefined).map(cr
 const fakeUsers = createUsers(2000);
 
 export default function Index() {
+    const senderId = useParams({
+        from: '/sender/$id', select: (params) => params.id,
+    })
+    const [logs, setLogs] = useState([])
+
     const columns = [{
         name: 'Name', selector: row => row.name, sortable: true,
     }, {
@@ -51,6 +58,19 @@ export default function Index() {
         console.log(data);
         return <Box>Extra info</Box>;
     }
+
+    const fetchLogs = async () => {
+        get(`/api/management/senders/${senderId}/logs`, {}).then((result) => {
+            setLogs(result);
+            console.log(result);
+        }).catch((error) => {
+            toast.error(error.message);
+        })
+    }
+
+    useEffect(() => {
+        fetchLogs();
+    }, []);
 
     return <div>
 

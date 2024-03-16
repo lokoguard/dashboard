@@ -18,7 +18,7 @@ export default function LoginPage() {
         event.preventDefault();
         const email = event.target[0].value;
         const password = event.target[1].value;
-        post("/api/management/auth/login", {email, password})
+        post("/api/management/auth/login", {}, {email, password})
             .then((data) => {
                 toast.success("Login successful")
                 let token = data.token

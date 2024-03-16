@@ -6,10 +6,18 @@ const getHttpBaseUrl = () => {
 }
 
 const sendRequest = async (url, options) => {
+    // insert auth token
+    if (!options) {
+        options = {}
+    }
+    if (!options.headers) {
+        options.headers = {}
+    }
+    if (localStorage.getItem('token')) {
+        options.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token')
+    }
     const response = await fetch(getHttpBaseUrl() + url, options)
     if (!response.ok) {
-        // try to fetch response.body.json() to get the error message
-        // if it fails, throw a generic error message
         try {
             const error = await response.json()
             throw new Error(error.error)
@@ -28,8 +36,12 @@ const get = async (route, queryParams) => {
     return sendRequest(url)
 }
 
-const post = async (route, body) => {
-    return sendRequest(route, {
+const post = async (route, queryParams, body) => {
+    let url = route
+    if (queryParams) {
+        url += '?' + new URLSearchParams(queryParams).toString()
+    }
+    return sendRequest(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -38,8 +50,12 @@ const post = async (route, body) => {
     })
 }
 
-const put = async (route, body) => {
-    return sendRequest(route, {
+const put = async (route, queryParams, body) => {
+    let url = route
+    if (queryParams) {
+        url += '?' + new URLSearchParams(queryParams).toString()
+    }
+    return sendRequest(url, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

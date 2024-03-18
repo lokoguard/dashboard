@@ -1,24 +1,14 @@
 import { createFileRoute, useParams } from "@tanstack/react-router";
 import DataTable from "react-data-table-component";
 // TODO: delete it
-import { faker } from "@faker-js/faker";
 import { useEffect, useMemo, useState } from "react";
 import { Box, Flex, Input } from "@chakra-ui/react";
 import { get } from "../../../request.js";
 import toast from "react-hot-toast";
-import { getFormattedDateTime, getRelativeTime } from "../../../utils.jsx";
+import { getFormattedDateTime } from "../../../utils.jsx";
 
 export const Route = createFileRoute("/sender/$id/logs")({
   component: Index,
-});
-
-const createUser = () => ({
-  id: faker.string.uuid(),
-  name: faker.internet.userName(),
-  email: faker.internet.email(),
-  address: faker.location.streetAddress(),
-  bio: faker.lorem.sentence(),
-  image: faker.image.avatar(),
 });
 
 export default function Index() {

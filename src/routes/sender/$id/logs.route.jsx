@@ -20,24 +20,14 @@ export default function Index() {
 
   const columns = [
     {
-      name: "Facility Level",
-      selector: (row) => row.facilityLevel,
-      sortable: true,
-    },
-    {
-      name: "Severity Level",
-      selector: (row) => row.severityLevel,
-      sortable: true,
-    },
-    {
-      name: "Appname",
-      selector: (row) => row.appname,
-      sortable: true,
-    },
-    {
-      name: "Timestamp",
+      name: "Datetime",
       selector: (row) => getFormattedDateTime(row.timestamp * 1000),
       sortable: true,
+    },
+    {
+      name: "Message",
+      selector: (row) => row.message,
+      sortable: false,
     },
   ];
   const [filterText, setFilterText] = useState("");
@@ -77,7 +67,6 @@ export default function Index() {
     get(`/api/management/senders/${senderId}/logs`, {})
       .then((result) => {
         setLogs(result);
-        console.log(result);
       })
       .catch((error) => {
         toast.error(error.message);

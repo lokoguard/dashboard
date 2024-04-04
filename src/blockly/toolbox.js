@@ -41,6 +41,14 @@ export default {
           kind: "block",
           type: "send_notification",
         },
+        {
+          kind: "block",
+          type: "search_regex_pattern",
+        },
+        {
+          kind: "block",
+          type: "fetch_regex_named_group",
+        },
       ],
     },
     {

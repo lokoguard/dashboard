@@ -1,7 +1,87 @@
+import Blockly from "blockly";
 import "blockly/javascript";
 
 // Schedule Job -- for future
+Blockly.Blocks["schedule_job"] = {
+  init: function () {
+    this.jsonInit({
+      colour: "#e75204",
+      message0: "run job after %1 seconds",
+      args0: [
+        {
+          type: "field_number",
+          name: "AFTER_SECONDS",
+        },
+      ],
+      message1: "%1",
+      args1: [
+        {
+          type: "input_statement",
+          name: "MAIN",
+        },
+      ],
+      previousStatement: null,
+      nextStatement: null,
+      output: null,
+    });
+  },
+};
 
 // Enqueue Job -- run as soon as possible
-// Delete Job -- remove from queue (do by hashing)
+Blockly.Blocks["enqueue_job"] = {
+  init: function () {
+    this.jsonInit({
+      colour: "#e75204",
+      message0: "run job",
+      message1: "%1",
+      args1: [
+        {
+          type: "input_statement",
+          name: "MAIN",
+        },
+      ],
+      previousStatement: null,
+      nextStatement: null,
+      output: null,
+    });
+  },
+};
 
+// Delete Job -- remove from queue (do by hashing)
+Blockly.Blocks["delete_job"] = {
+  init: function () {
+    this.jsonInit({
+      colour: "#e75204",
+      message0: "delete job",
+      message1: "%1",
+      args1: [
+        {
+          type: "input_statement",
+          name: "MAIN",
+        },
+      ],
+      previousStatement: null,
+      nextStatement: null,
+      output: null,
+    });
+  },
+};
+
+// Delete job by ID
+Blockly.Blocks["delete_job_by_id"] = {
+  init: function () {
+    this.jsonInit({
+      colour: "#e75204",
+      message0: "delete job by id %1",
+      args0: [
+        {
+          type: "input_value",
+          name: "JOB_ID",
+        },
+      ],
+      previousStatement: null,
+      nextStatement: null,
+      output: null,
+    });
+  },
+};

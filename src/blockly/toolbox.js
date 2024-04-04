@@ -35,15 +35,34 @@ export default {
       contents: [
         {
           kind: "block",
-          type: "script_runner_with_output",
-        },
-        {
-          kind: "block",
           type: "script_runner",
         },
         {
           kind: "block",
           type: "send_notification",
+        },
+      ],
+    },
+    {
+      kind: "category",
+      name: "Job Queue",
+      colour: "#e75204",
+      contents: [
+        {
+          kind: "block",
+          type: "schedule_job",
+        },
+        {
+          kind: "block",
+          type: "enqueue_job",
+        },
+        {
+          kind: "block",
+          type: "delete_job",
+        },
+        {
+          kind: "block",
+          type: "delete_job_by_id",
         },
       ],
     },

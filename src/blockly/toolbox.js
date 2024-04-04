@@ -30,9 +30,32 @@ export default {
     },
     {
       kind: "category",
+      name: "Utilities",
+      colour: "#6707b4",
+      contents: [
+        {
+          kind: "block",
+          type: "script_runner_with_output",
+        },
+        {
+          kind: "block",
+          type: "script_runner",
+        },
+        {
+          kind: "block",
+          type: "send_notification",
+        },
+      ],
+    },
+    {
+      kind: "category",
       name: "Types",
       colour: "#2272e7",
       contents: [
+        {
+          kind: "block",
+          type: "text",
+        },
         {
           kind: "block",
           type: "file_event_type",

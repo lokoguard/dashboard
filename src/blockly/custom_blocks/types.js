@@ -1,6 +1,23 @@
 import Blockly from "blockly";
 import "blockly/javascript";
 
+// Text
+Blockly.Blocks["text"] = {
+  init: function () {
+    this.jsonInit({
+      colour: "#2272e7",
+      message0: "%1",
+      args0: [
+        {
+          type: "field_input",
+          name: "VALUE",
+        },
+      ],
+      output: "String",
+    });
+  },
+};
+
 // File event type -- create, access, write, delete
 Blockly.Blocks["file_event_type"] = {
   init: function () {
@@ -67,16 +84,6 @@ Blockly.Blocks["syslog_facility_level"] = {
 };
 
 // Syslog Severity level
-// 0: "emergency",
-//     1: "alert",
-//     2: "critical",
-//     3: "error",
-//     4: "warning",
-//     5: "notice",
-//     6: "informational",
-//     7: "debug",
-// }
-
 Blockly.Blocks["syslog_severity_level"] = {
   init: function () {
     this.jsonInit({

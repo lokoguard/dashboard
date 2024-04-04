@@ -3,6 +3,52 @@ export default {
   contents: [
     {
       kind: "category",
+      name: "Hooks",
+      colour: "#5CA699",
+      contents: [
+        {
+          kind: "block",
+          type: "on_new_log",
+        },
+        {
+          kind: "block",
+          type: "on_file_event",
+        },
+        {
+          kind: "block",
+          type: "on_disk_usage_update",
+        },
+        {
+          kind: "block",
+          type: "on_cpu_usage_update",
+        },
+        {
+          kind: "block",
+          type: "on_memory_usage_update",
+        },
+      ],
+    },
+    {
+      kind: "category",
+      name: "Types",
+      colour: "#2272e7",
+      contents: [
+        {
+          kind: "block",
+          type: "file_event_type",
+        },
+        {
+          kind: "block",
+          type: "syslog_facility_level",
+        },
+        {
+          kind: "block",
+          type: "syslog_severity_level",
+        },
+      ],
+    },
+    {
+      kind: "category",
       name: "Variables",
       categorystyle: "variable_category",
       custom: "VARIABLE",

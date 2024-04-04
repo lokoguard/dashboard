@@ -7,6 +7,7 @@ import { Button } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 import generateCode from "../../../blockly/generator.js";
+import "../../../blockly/custom_blocks.js";
 
 export const Route = createFileRoute("/policy/$id/designer")({
   component: Index,

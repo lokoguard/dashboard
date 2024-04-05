@@ -1,6 +1,5 @@
 import { createFileRoute, useParams } from "@tanstack/react-router";
 import DataTable from "react-data-table-component";
-// TODO: delete it
 import { useEffect, useMemo, useState } from "react";
 import { Flex, Input } from "@chakra-ui/react";
 import { get } from "../../../request.js";
@@ -94,7 +93,7 @@ export default function Index() {
 }
 
 // eslint-disable-next-line react/prop-types
-const FilterComponent = ({ filterText, onFilter, onClear }) => (
+const FilterComponent = ({ filterText, onFilter }) => (
   <Flex flexDirection="row">
     <Input
       type="text"

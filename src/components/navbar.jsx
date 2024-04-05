@@ -19,12 +19,19 @@ import {
 import Logo from "../assets/logo.png";
 import RegisterSenderModal from "./RegisterSenderModal.jsx";
 import { Link } from "@tanstack/react-router";
+import CreateNewPolicyModal from "./CreateNewPolicyModal.jsx";
 
 export default function Navbar() {
   const {
     isOpen: isOpenRegisterSenderModal,
     onOpen: onOpenRegisterSenderModal,
     onClose: onCloseRegisterSenderModal,
+  } = useDisclosure();
+
+  const {
+    isOpen: isOpenNewPolicyModal,
+    onOpen: onOpenNewPolicyModal,
+    onClose: onCloseNewPolicyModal,
   } = useDisclosure();
 
   return (
@@ -34,6 +41,11 @@ export default function Navbar() {
         isOpen={isOpenRegisterSenderModal}
         onOpen={onOpenRegisterSenderModal}
         onClose={onCloseRegisterSenderModal}
+      />
+      <CreateNewPolicyModal
+        isOpen={isOpenNewPolicyModal}
+        onOpen={onOpenNewPolicyModal}
+        onClose={onCloseNewPolicyModal}
       />
       {/* Navbar */}
       <Flex
@@ -69,8 +81,12 @@ export default function Navbar() {
               &nbsp;&nbsp;Policy Management
             </MenuButton>
             <MenuList>
-              <MenuItem>Policy List</MenuItem>
-              <MenuItem>Create new policy</MenuItem>
+              <Link to="/policy">
+                <MenuItem>Policy List</MenuItem>
+              </Link>
+              <MenuItem onClick={onOpenNewPolicyModal}>
+                Create new policy
+              </MenuItem>
             </MenuList>
           </Menu>
           <Menu>

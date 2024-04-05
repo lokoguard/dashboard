@@ -35,6 +35,10 @@ export default {
       contents: [
         {
           kind: "block",
+          type: "dump_output",
+        },
+        {
+          kind: "block",
           type: "script_runner",
         },
         {
@@ -48,6 +52,10 @@ export default {
         {
           kind: "block",
           type: "fetch_regex_named_group",
+        },
+        {
+          kind: "block",
+          type: "join_with_separator",
         },
       ],
     },

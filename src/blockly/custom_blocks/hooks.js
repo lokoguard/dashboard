@@ -51,47 +51,9 @@ Blockly.Blocks["on_new_log"] = {
           name: "MAIN",
         },
       ],
-      onchange: function () {
-        if (!this.workspace.getVariableMap().getVariableById("log_content")) {
-          this.workspace.createVariable("log_content", "Type", "log_content");
-        }
-        if (!this.workspace.getVariableMap().getVariableById("server_id")) {
-          this.workspace.createVariable("server_id", "Type", "server_id");
-        }
-        if (
-          !this.workspace.getVariableMap().getVariableById("server_hostname")
-        ) {
-          this.workspace.createVariable(
-            "server_hostname",
-            "Type",
-            "server_hostname",
-          );
-        }
-        if (
-          !this.workspace.getVariableMap().getVariableById("facility_level")
-        ) {
-          this.workspace.createVariable(
-            "facility_level",
-            "Type",
-            "facility_level",
-          );
-        }
-        if (
-          !this.workspace.getVariableMap().getVariableById("severity_level")
-        ) {
-          this.workspace.createVariable(
-            "severity_level",
-            "Type",
-            "severity_level",
-          );
-        }
-      },
     });
   },
 };
-
-// Code generator
-// Blockly.JavaScript["on_new_log"] = function (block) {};
 
 Blockly.Blocks["on_file_event"] = {
   init: function () {
@@ -134,24 +96,6 @@ Blockly.Blocks["on_file_event"] = {
         },
       ],
     });
-  },
-  onchange: function () {
-    if (!this.workspace.getVariableMap().getVariableById("server_id")) {
-      this.workspace.createVariable("server_id", "Type", "server_id");
-    }
-    if (!this.workspace.getVariableMap().getVariableById("server_hostname")) {
-      this.workspace.createVariable(
-        "server_hostname",
-        "Type",
-        "server_hostname",
-      );
-    }
-    if (!this.workspace.getVariableMap().getVariableById("event")) {
-      this.workspace.createVariable("event", "Type", "event");
-    }
-    if (!this.workspace.getVariableMap().getVariableById("file_name")) {
-      this.workspace.createVariable("file_name", "Type", "file_name");
-    }
   },
 };
 
@@ -212,33 +156,6 @@ Blockly.Blocks["on_disk_usage_update"] = {
       ],
     });
   },
-  onchange: function () {
-    if (!this.workspace.getVariableMap().getVariableById("server_id")) {
-      this.workspace.createVariable("server_id", "Type", "server_id");
-    }
-    if (!this.workspace.getVariableMap().getVariableById("server_hostname")) {
-      this.workspace.createVariable(
-        "server_hostname",
-        "Type",
-        "server_hostname",
-      );
-    }
-    if (!this.workspace.getVariableMap().getVariableById("usage_percent")) {
-      this.workspace.createVariable("usage_percent", "Type", "usage_percent");
-    }
-    if (!this.workspace.getVariableMap().getVariableById("disk")) {
-      this.workspace.createVariable("disk", "Type", "disk");
-    }
-    if (!this.workspace.getVariableMap().getVariableById("total_disk_gb")) {
-      this.workspace.createVariable("total_disk_gb", "Type", "total_disk_gb");
-    }
-    if (!this.workspace.getVariableMap().getVariableById("free_disk_gb")) {
-      this.workspace.createVariable("free_disk_gb", "Type", "free_disk_gb");
-    }
-    if (!this.workspace.getVariableMap().getVariableById("used_disk_gb")) {
-      this.workspace.createVariable("used_disk_gb", "Type", "used_disk_gb");
-    }
-  },
 };
 
 Blockly.Blocks["on_memory_usage_update"] = {
@@ -292,40 +209,6 @@ Blockly.Blocks["on_memory_usage_update"] = {
         },
       ],
     });
-  },
-  onchange: function () {
-    if (!this.workspace.getVariableMap().getVariableById("server_id")) {
-      this.workspace.createVariable("server_id", "Type", "server_id");
-    }
-    if (!this.workspace.getVariableMap().getVariableById("server_hostname")) {
-      this.workspace.createVariable(
-        "server_hostname",
-        "Type",
-        "server_hostname",
-      );
-    }
-    if (
-      !this.workspace.getVariableMap().getVariableById("memory_usage_percent")
-    ) {
-      this.workspace.createVariable(
-        "memory_usage_percent",
-        "Type",
-        "memory_usage_percent",
-      );
-    }
-    if (!this.workspace.getVariableMap().getVariableById("total_memory_gb")) {
-      this.workspace.createVariable(
-        "total_memory_gb",
-        "Type",
-        "total_memory_gb",
-      );
-    }
-    if (!this.workspace.getVariableMap().getVariableById("free_memory_gb")) {
-      this.workspace.createVariable("free_memory_gb", "Type", "free_memory_gb");
-    }
-    if (!this.workspace.getVariableMap().getVariableById("used_memory_gb")) {
-      this.workspace.createVariable("used_memory_gb", "Type", "used_memory_gb");
-    }
   },
 };
 

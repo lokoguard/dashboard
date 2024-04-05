@@ -20,8 +20,6 @@ Blockly.Blocks["schedule_job"] = {
           name: "MAIN",
         },
       ],
-      previousStatement: null,
-      nextStatement: null,
       output: null,
     });
   },
@@ -40,8 +38,6 @@ Blockly.Blocks["enqueue_job"] = {
           name: "MAIN",
         },
       ],
-      previousStatement: null,
-      nextStatement: null,
       output: null,
     });
   },
@@ -60,8 +56,6 @@ Blockly.Blocks["delete_job"] = {
           name: "MAIN",
         },
       ],
-      previousStatement: null,
-      nextStatement: null,
       output: null,
     });
   },
@@ -79,8 +73,6 @@ Blockly.Blocks["delete_job_by_id"] = {
           name: "JOB_ID",
         },
       ],
-      previousStatement: null,
-      nextStatement: null,
       output: null,
     });
   },

@@ -36,11 +36,6 @@ javascriptGenerator.forBlock["enqueue_job"] = function (block, generator) {
   return [`await enqueue_job(\`${inputStatement}\`)`, Order.ATOMIC];
 };
 
-javascriptGenerator.forBlock["delete_job"] = function (block, generator) {
-  const inputStatement = generator.statementToCode(block, "MAIN");
-  return [`await delete_job(\`${inputStatement}\`)`, Order.ATOMIC];
-};
-
 javascriptGenerator.forBlock["delete_job_by_id"] = function (block, generator) {
   const jobId = generator.valueToCode(block, "JOB_ID", Order.ATOMIC);
   return [`await delete_job_by_id(${jobId})`, Order.ATOMIC];

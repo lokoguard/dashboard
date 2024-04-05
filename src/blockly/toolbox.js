@@ -74,10 +74,6 @@ export default {
         },
         {
           kind: "block",
-          type: "delete_job",
-        },
-        {
-          kind: "block",
           type: "delete_job_by_id",
         },
       ],

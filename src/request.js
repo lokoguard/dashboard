@@ -75,4 +75,4 @@ const deleteReq = async (route, queryParams) => {
   });
 };
 
-export { get, post, put, deleteReq };
+export { get, post, put, deleteReq, getHttpBaseUrl };

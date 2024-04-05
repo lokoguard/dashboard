@@ -3,6 +3,110 @@ export default {
   contents: [
     {
       kind: "category",
+      name: "Hooks",
+      colour: "#5CA699",
+      contents: [
+        {
+          kind: "block",
+          type: "on_new_log",
+        },
+        {
+          kind: "block",
+          type: "on_file_event",
+        },
+        {
+          kind: "block",
+          type: "on_disk_usage_update",
+        },
+        {
+          kind: "block",
+          type: "on_cpu_usage_update",
+        },
+        {
+          kind: "block",
+          type: "on_memory_usage_update",
+        },
+      ],
+    },
+    {
+      kind: "category",
+      name: "Utilities",
+      colour: "#6707b4",
+      contents: [
+        {
+          kind: "block",
+          type: "dump_output",
+        },
+        {
+          kind: "block",
+          type: "script_runner",
+        },
+        {
+          kind: "block",
+          type: "report_issue",
+        },
+        {
+          kind: "block",
+          type: "send_notification",
+        },
+        {
+          kind: "block",
+          type: "search_regex_pattern",
+        },
+        {
+          kind: "block",
+          type: "fetch_regex_named_group",
+        },
+        {
+          kind: "block",
+          type: "join_with_separator",
+        },
+      ],
+    },
+    {
+      kind: "category",
+      name: "Job Queue",
+      colour: "#e75204",
+      contents: [
+        {
+          kind: "block",
+          type: "schedule_job",
+        },
+        {
+          kind: "block",
+          type: "enqueue_job",
+        },
+        {
+          kind: "block",
+          type: "delete_job_by_id",
+        },
+      ],
+    },
+    {
+      kind: "category",
+      name: "Types",
+      colour: "#2272e7",
+      contents: [
+        {
+          kind: "block",
+          type: "text",
+        },
+        {
+          kind: "block",
+          type: "file_event_type",
+        },
+        {
+          kind: "block",
+          type: "syslog_facility_level",
+        },
+        {
+          kind: "block",
+          type: "syslog_severity_level",
+        },
+      ],
+    },
+    {
+      kind: "category",
       name: "Variables",
       categorystyle: "variable_category",
       custom: "VARIABLE",

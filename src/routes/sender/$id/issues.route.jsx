@@ -1,51 +1,50 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useParams } from "@tanstack/react-router";
 import DataTable from "react-data-table-component";
 // TODO: delete it
-import { faker } from "@faker-js/faker";
-import { useMemo, useState } from "react";
-import { Box, Flex, Input } from "@chakra-ui/react";
+import { useEffect, useMemo, useState } from "react";
+import { Flex, Input } from "@chakra-ui/react";
+import { get } from "../../../request.js";
+import toast from "react-hot-toast";
+import { getFormattedDateTime } from "../../../utils.jsx";
 
 export const Route = createFileRoute("/sender/$id/issues")({
   component: Index,
 });
 
-const createUser = () => ({
-  id: faker.string.uuid(),
-  name: faker.internet.userName(),
-  email: faker.internet.email(),
-  address: faker.location.streetAddress(),
-  bio: faker.lorem.sentence(),
-  image: faker.image.avatar(),
-});
-
-const createUsers = (numUsers = 5) =>
-  new Array(numUsers).fill(undefined).map(createUser);
-
-const fakeUsers = createUsers(2000);
-
 export default function Index() {
+  const senderId = useParams({
+    from: "/sender/$id",
+    select: (params) => params.id,
+  });
+  const [issues, setIssues] = useState([]);
+
   const columns = [
     {
-      name: "Name",
-      selector: (row) => row.name,
+      name: "Issue Report",
+      selector: (row) => row.message,
       sortable: true,
     },
     {
-      name: "Email",
-      selector: (row) => row.email,
+      name: "Action",
+      selector: (row) => row.action,
       sortable: true,
     },
     {
-      name: "Address",
-      selector: (row) => row.address,
+      name: "Datetime",
+      selector: (row) => getFormattedDateTime(row.timestamp * 1000),
       sortable: true,
+      right: true,
+      style: {
+        maxWidth: "200px",
+      },
     },
   ];
   const [filterText, setFilterText] = useState("");
   const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
-  const filteredItems = fakeUsers.filter(
+  const filteredItems = issues.filter(
     (item) =>
-      item.name && item.name.toLowerCase().includes(filterText.toLowerCase()),
+      item.message &&
+      item.message.toLowerCase().includes(filterText.toLowerCase()),
   );
 
   const subHeaderComponentMemo = useMemo(() => {
@@ -65,9 +64,19 @@ export default function Index() {
     );
   }, [filterText, resetPaginationToggle]);
 
-  const expandableRowsComponent = ({ data }) => {
-    return <Box>Extra info</Box>;
+  const fetchIssues = async () => {
+    get(`/api/management/senders/${senderId}/issues`, {})
+      .then((result) => {
+        setIssues(result);
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
+
+  useEffect(() => {
+    fetchIssues();
+  }, []);
 
   return (
     <div>
@@ -78,8 +87,6 @@ export default function Index() {
         paginationResetDefaultPage={resetPaginationToggle} // optionally, a hook to reset pagination to page 1
         subHeader
         subHeaderComponent={subHeaderComponentMemo}
-        expandableRows
-        expandableRowsComponent={expandableRowsComponent}
         persistTableHead
       />
     </div>

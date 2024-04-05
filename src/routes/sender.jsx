@@ -67,7 +67,7 @@ function LayoutComponent() {
         />
         <Link
           to={`/sender/${senderId}/issues`}
-          children={({ isActive }) => linkbutton("Issue Reporting", isActive)}
+          children={({ isActive }) => linkbutton("Issue & Reports", isActive)}
         />
       </Flex>
       <Outlet />

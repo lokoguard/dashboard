@@ -43,6 +43,31 @@ Blockly.Blocks["script_runner"] = {
   },
 };
 
+// Report Issue
+Blockly.Blocks["report_issue"] = {
+  init: function () {
+    this.jsonInit({
+      colour: "#6707b4",
+      message0: "report issue %1",
+      args0: [
+        {
+          type: "input_value",
+          name: "ISSUE",
+        },
+      ],
+      message1: "for server %1",
+      args1: [
+        {
+          type: "input_value",
+          name: "SERVER_ID",
+        },
+      ],
+      previousStatement: null,
+      nextStatement: null,
+    });
+  },
+};
+
 // Send notification
 Blockly.Blocks["send_notification"] = {
   init: function () {

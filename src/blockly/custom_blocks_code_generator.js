@@ -53,6 +53,12 @@ javascriptGenerator.forBlock["script_runner"] = function (block, generator) {
   return [`await run_script(${script}, ${server})`, Order.ATOMIC];
 };
 
+javascriptGenerator.forBlock["report_issue"] = function (block, generator) {
+  const issue = generator.valueToCode(block, "ISSUE", Order.ATOMIC);
+  const server = generator.valueToCode(block, "SERVER_ID", Order.ATOMIC);
+  return `await report_issue(${issue}, ${server})`;
+};
+
 javascriptGenerator.forBlock["send_notification"] = function (
   block,
   generator,

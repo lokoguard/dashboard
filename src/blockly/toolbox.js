@@ -43,6 +43,10 @@ export default {
         },
         {
           kind: "block",
+          type: "report_issue",
+        },
+        {
+          kind: "block",
           type: "send_notification",
         },
         {

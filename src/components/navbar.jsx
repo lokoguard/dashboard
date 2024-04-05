@@ -16,7 +16,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo-horizontal.png";
 import RegisterSenderModal from "./RegisterSenderModal.jsx";
 import { Link } from "@tanstack/react-router";
 import CreateNewPolicyModal from "./CreateNewPolicyModal.jsx";
@@ -33,6 +33,11 @@ export default function Navbar() {
     onOpen: onOpenNewPolicyModal,
     onClose: onCloseNewPolicyModal,
   } = useDisclosure();
+
+  const logout = () => {
+    localStorage.clear();
+    window.dispatchEvent(new Event("login_state"));
+  };
 
   return (
     <>
@@ -58,7 +63,7 @@ export default function Navbar() {
         borderColor="gray.200"
       >
         <Link to="/">
-          <Image src={Logo} h="10" w="10" mr="5" />
+          <Image src={Logo} h="12" mr="5" />
         </Link>
         <Flex gap="8px">
           <Menu>
@@ -99,7 +104,7 @@ export default function Navbar() {
             </MenuList>
           </Menu>
         </Flex>
-        <Button>
+        <Button onClick={logout}>
           Logout&nbsp;&nbsp;
           <ArrowForwardIcon />
         </Button>

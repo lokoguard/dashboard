@@ -65,25 +65,6 @@ export default {
     },
     {
       kind: "category",
-      name: "Job Queue",
-      colour: "#e75204",
-      contents: [
-        {
-          kind: "block",
-          type: "schedule_job",
-        },
-        {
-          kind: "block",
-          type: "enqueue_job",
-        },
-        {
-          kind: "block",
-          type: "delete_job_by_id",
-        },
-      ],
-    },
-    {
-      kind: "category",
       name: "Types",
       colour: "#2272e7",
       contents: [

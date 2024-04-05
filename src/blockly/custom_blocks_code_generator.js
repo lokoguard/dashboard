@@ -21,26 +21,6 @@ javascriptGenerator.forBlock["syslog_severity_level"] = function (block) {
   return [`"${value}"`, Order.ATOMIC];
 };
 
-// Scheduler custom blocks
-javascriptGenerator.forBlock["schedule_job"] = function (block, generator) {
-  const afterSeconds = block.getFieldValue("AFTER_SECONDS");
-  const inputStatement = generator.statementToCode(block, "MAIN");
-  return [
-    `await schedule_job(${afterSeconds}, \`${inputStatement}\`)`,
-    Order.ATOMIC,
-  ];
-};
-
-javascriptGenerator.forBlock["enqueue_job"] = function (block, generator) {
-  const inputStatement = generator.statementToCode(block, "MAIN");
-  return [`await enqueue_job(\`${inputStatement}\`)`, Order.ATOMIC];
-};
-
-javascriptGenerator.forBlock["delete_job_by_id"] = function (block, generator) {
-  const jobId = generator.valueToCode(block, "JOB_ID", Order.ATOMIC);
-  return [`await delete_job_by_id(${jobId})`, Order.ATOMIC];
-};
-
 // Utilities custom blocks
 javascriptGenerator.forBlock["dump_output"] = function (block, generator) {
   const inputStatement = generator.valueToCode(block, "VALUE", Order.ATOMIC);

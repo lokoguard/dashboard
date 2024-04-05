@@ -147,26 +147,6 @@ export default function Index() {
   };
 
   const updateDiskStats = async (rawSeries) => {
-    //     0
-    // free_gb
-    // :
-    // 246.74907
-    // fs_type
-    // :
-    // "ext2/ext3"
-    // path
-    // :
-    // "/home"
-    // total_gb
-    // :
-    // 370.3986
-    // used_gb
-    // :
-    // 104.76441
-    // used_percent
-    // :
-    // 29.80381
-
     if (rawSeries.length === 0) {
       return;
     }

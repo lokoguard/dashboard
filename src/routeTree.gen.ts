@@ -74,6 +74,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SenderImport
       parentRoute: typeof rootRoute
     }
+    '/policy/': {
+      preLoaderRoute: typeof PolicyIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/policy/$id/designer': {
       preLoaderRoute: typeof PolicyIdDesignerRouteImport
       parentRoute: typeof rootRoute
@@ -94,10 +98,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SenderIdLogsRouteImport
       parentRoute: typeof SenderImport
     }
-    '/policy/': {
-      preLoaderRoute: typeof PolicyIndexImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -111,8 +111,8 @@ export const routeTree = rootRoute.addChildren([
     SenderIdIssuesRouteRoute,
     SenderIdLogsRouteRoute,
   ]),
-  PolicyIdDesignerRouteRoute,
   PolicyIndexRoute,
+  PolicyIdDesignerRouteRoute,
 ])
 
 /* prettier-ignore-end */

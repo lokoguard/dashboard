@@ -116,7 +116,7 @@ function Index() {
         >
           <Button
             size="sm"
-            colorScheme="teal"
+            colorScheme="yellow"
             leftIcon={<FontAwesomeIcon icon={faSave} />}
             onClick={updatePolicy}
           >
@@ -124,7 +124,7 @@ function Index() {
           </Button>
           <Button
             size="sm"
-            colorScheme="teal"
+            colorScheme="yellow"
             leftIcon={<FontAwesomeIcon icon={faCode} />}
             onClick={viewCode}
           >

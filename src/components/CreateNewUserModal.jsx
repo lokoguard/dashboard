@@ -77,7 +77,11 @@ export default function CreateNewUserModal({ isOpen, onClose }) {
           <Button colorScheme="red" mr={2} onClick={onClose}>
             Close
           </Button>
-          <Button colorScheme="teal" type="submit" isDisabled={userName === ""}>
+          <Button
+            colorScheme="yellow"
+            type="submit"
+            isDisabled={userName === ""}
+          >
             Create Now
           </Button>
         </ModalFooter>

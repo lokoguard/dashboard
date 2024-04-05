@@ -90,7 +90,7 @@ function Index() {
                     <Td>
                       <Badge
                         variant="solid"
-                        colorScheme="teal"
+                        colorScheme="yellow"
                         rounded="full"
                         px="10px"
                         py="2px"
@@ -107,7 +107,7 @@ function Index() {
                     </Td>
                     <Td>
                       <Button
-                        colorScheme="teal"
+                        colorScheme="yellow"
                         size="xs"
                         onClick={() =>
                           agentConfigureGuide(sender.id, sender.type)

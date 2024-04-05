@@ -23,7 +23,7 @@ function LayoutComponent() {
 
   function linkbutton(label, isActive) {
     return (
-      <Button colorScheme={isActive ? "teal" : "gray"} rounded="full">
+      <Button colorScheme={isActive ? "yellow" : "gray"} rounded="full">
         {label}
       </Button>
     );

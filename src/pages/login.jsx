@@ -60,7 +60,7 @@ export default function LoginPage() {
               <Button
                 borderRadius="full"
                 variant="solid"
-                colorScheme="teal"
+                colorScheme="yellow"
                 type="submit"
               >
                 Sign in

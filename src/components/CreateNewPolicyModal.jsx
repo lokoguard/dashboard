@@ -55,7 +55,7 @@ export default function CreateNewPolicyModal({ isOpen, onClose }) {
             Close
           </Button>
           <Button
-            colorScheme="teal"
+            colorScheme="yellow"
             type="submit"
             isDisabled={policyName === ""}
           >

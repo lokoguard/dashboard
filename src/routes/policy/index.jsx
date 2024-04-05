@@ -25,7 +25,7 @@ export default function Index() {
       selector: (row) => (
         <Flex gap={6}>
           <Link to={`/policy/${row.id}/designer`}>
-            <Button colorScheme="teal" size="sm">
+            <Button colorScheme="yellow" size="sm">
               Open Policy Designer
             </Button>
           </Link>

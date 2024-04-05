@@ -49,14 +49,20 @@ javascriptGenerator.forBlock["dump_output"] = function (block, generator) {
 
 javascriptGenerator.forBlock["script_runner"] = function (block, generator) {
   const script = generator.valueToCode(block, "SCRIPT", Order.ATOMIC);
+  const args = generator.valueToCode(block, "ARGS", Order.ATOMIC);
   const server = generator.valueToCode(block, "SERVER_ID", Order.ATOMIC);
-  return [`await run_script(${script}, ${server})`, Order.ATOMIC];
+  const timeout = block.getFieldValue("TIMEOUT");
+  return [
+    `await run_script(${script}, ${args}, ${timeout}, ${server})`,
+    Order.ATOMIC,
+  ];
 };
 
 javascriptGenerator.forBlock["report_issue"] = function (block, generator) {
   const issue = generator.valueToCode(block, "ISSUE", Order.ATOMIC);
   const server = generator.valueToCode(block, "SERVER_ID", Order.ATOMIC);
-  return `await report_issue(${issue}, ${server})`;
+  const action = generator.valueToCode(block, "ACTION", Order.ATOMIC);
+  return `await report_issue(${issue}, ${action}, ${server});\n`;
 };
 
 javascriptGenerator.forBlock["send_notification"] = function (

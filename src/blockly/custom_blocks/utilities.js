@@ -31,11 +31,25 @@ Blockly.Blocks["script_runner"] = {
           name: "SCRIPT",
         },
       ],
-      message1: "on server %1",
+      message1: "with args %1",
       args1: [
         {
           type: "input_value",
+          name: "ARGS",
+        },
+      ],
+      message2: "on server %1",
+      args2: [
+        {
+          type: "input_value",
           name: "SERVER_ID",
+        },
+      ],
+      message3: "action %1 seconds",
+      args3: [
+        {
+          type: "field_number",
+          name: "TIMEOUT",
         },
       ],
       output: "String",
@@ -60,6 +74,13 @@ Blockly.Blocks["report_issue"] = {
         {
           type: "input_value",
           name: "SERVER_ID",
+        },
+      ],
+      message2: "action %1",
+      args2: [
+        {
+          type: "input_value",
+          name: "ACTION",
         },
       ],
       previousStatement: null,

@@ -1,6 +1,5 @@
 import { createFileRoute, useParams } from "@tanstack/react-router";
 import DataTable from "react-data-table-component";
-// TODO: delete it
 import { useEffect, useMemo, useState } from "react";
 import { Box, Flex, Input } from "@chakra-ui/react";
 import { get } from "../../../request.js";
@@ -20,14 +19,18 @@ export default function Index() {
 
   const columns = [
     {
-      name: "Datetime",
-      selector: (row) => getFormattedDateTime(row.timestamp * 1000),
-      sortable: true,
-    },
-    {
       name: "Message",
       selector: (row) => row.message,
       sortable: false,
+    },
+    {
+      name: "Datetime",
+      selector: (row) => getFormattedDateTime(row.timestamp * 1000),
+      sortable: true,
+      right: true,
+      style: {
+        maxWidth: "200px",
+      },
     },
   ];
   const [filterText, setFilterText] = useState("");

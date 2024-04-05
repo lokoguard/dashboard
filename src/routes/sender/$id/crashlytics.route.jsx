@@ -1,7 +1,5 @@
 import { createFileRoute, useParams } from "@tanstack/react-router";
 import DataTable from "react-data-table-component";
-// TODO: delete it
-import { faker } from "@faker-js/faker";
 import { useEffect, useMemo, useState } from "react";
 import { Box, Flex, Input, Text } from "@chakra-ui/react";
 import { get } from "../../../request.js";
@@ -10,15 +8,6 @@ import { getFormattedDateTime } from "../../../utils.jsx";
 
 export const Route = createFileRoute("/sender/$id/crashlytics")({
   component: Index,
-});
-
-const createUser = () => ({
-  id: faker.string.uuid(),
-  name: faker.internet.userName(),
-  email: faker.internet.email(),
-  address: faker.location.streetAddress(),
-  bio: faker.lorem.sentence(),
-  image: faker.image.avatar(),
 });
 
 export default function Index() {
@@ -38,6 +27,10 @@ export default function Index() {
       name: "Datetime",
       selector: (row) => getFormattedDateTime(row.timestamp * 1000),
       sortable: true,
+      right: true,
+      style: {
+        maxWidth: "200px",
+      },
     },
   ];
   const [filterText, setFilterText] = useState("");

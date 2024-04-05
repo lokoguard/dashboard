@@ -1,13 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
-import { deleteReq, get } from "../request.js";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { deleteReq, get } from "../../request.js";
 import toast from "react-hot-toast";
 import DataTable from "react-data-table-component";
 import { Box, Button, Flex } from "@chakra-ui/react";
 
-export const Route = createFileRoute("/policy")({
+export const Route = createFileRoute("/policy/")({
   component: Index,
 });
 
@@ -24,9 +24,11 @@ export default function Index() {
       name: "Actions",
       selector: (row) => (
         <Flex gap={6}>
-          <Button colorScheme="teal" size="sm">
-            Open Policy Designer
-          </Button>
+          <Link to={`/policy/${row.id}/designer`}>
+            <Button colorScheme="teal" size="sm">
+              Open Policy Designer
+            </Button>
+          </Link>
           <Button
             colorScheme="red"
             size="sm"
@@ -37,9 +39,8 @@ export default function Index() {
         </Flex>
       ),
       sortable: true,
-      right: true,
       style: {
-        maxWidth: "500px",
+        width: "500px",
       },
     },
   ];

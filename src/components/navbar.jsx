@@ -20,6 +20,7 @@ import Logo from "../assets/logo-horizontal.png";
 import RegisterSenderModal from "./RegisterSenderModal.jsx";
 import { Link } from "@tanstack/react-router";
 import CreateNewPolicyModal from "./CreateNewPolicyModal.jsx";
+import CreateNewUserModal from "./CreateNewUserModal.jsx";
 
 export default function Navbar() {
   const {
@@ -32,6 +33,12 @@ export default function Navbar() {
     isOpen: isOpenNewPolicyModal,
     onOpen: onOpenNewPolicyModal,
     onClose: onCloseNewPolicyModal,
+  } = useDisclosure();
+
+  const {
+    isOpen: isOpenNewUserModal,
+    onOpen: onOpenNewUserModal,
+    onClose: onCloseNewUserModal,
   } = useDisclosure();
 
   const logout = () => {
@@ -51,6 +58,11 @@ export default function Navbar() {
         isOpen={isOpenNewPolicyModal}
         onOpen={onOpenNewPolicyModal}
         onClose={onCloseNewPolicyModal}
+      />
+      <CreateNewUserModal
+        isOpen={isOpenNewUserModal}
+        onOpen={onOpenNewUserModal}
+        onClose={onCloseNewUserModal}
       />
       {/* Navbar */}
       <Flex
@@ -103,6 +115,7 @@ export default function Navbar() {
               <Link to="/users">
                 <MenuItem>User List</MenuItem>
               </Link>
+              <MenuItem onClick={onOpenNewUserModal}>Create New User</MenuItem>
             </MenuList>
           </Menu>
         </Flex>

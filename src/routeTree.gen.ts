@@ -11,6 +11,7 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as UsersImport } from './routes/users'
 import { Route as SenderImport } from './routes/sender'
 import { Route as IndexImport } from './routes/index'
 import { Route as PolicyIndexImport } from './routes/policy/index'
@@ -21,6 +22,11 @@ import { Route as SenderIdAnalyticsRouteImport } from './routes/sender/$id/analy
 import { Route as PolicyIdDesignerRouteImport } from './routes/policy/$id/designer.route'
 
 // Create/Update Routes
+
+const UsersRoute = UsersImport.update({
+  path: '/users',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const SenderRoute = SenderImport.update({
   path: '/sender',
@@ -74,6 +80,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SenderImport
       parentRoute: typeof rootRoute
     }
+    '/users': {
+      preLoaderRoute: typeof UsersImport
+      parentRoute: typeof rootRoute
+    }
     '/policy/': {
       preLoaderRoute: typeof PolicyIndexImport
       parentRoute: typeof rootRoute
@@ -111,6 +121,7 @@ export const routeTree = rootRoute.addChildren([
     SenderIdIssuesRouteRoute,
     SenderIdLogsRouteRoute,
   ]),
+  UsersRoute,
   PolicyIndexRoute,
   PolicyIdDesignerRouteRoute,
 ])

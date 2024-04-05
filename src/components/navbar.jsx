@@ -12,7 +12,7 @@ import { ArrowForwardIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBuildingShield,
-  faGear,
+  faPeopleGroup,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -96,11 +96,13 @@ export default function Navbar() {
           </Menu>
           <Menu>
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-              <FontAwesomeIcon icon={faGear} />
-              &nbsp;&nbsp;System Configuration
+              <FontAwesomeIcon icon={faPeopleGroup} />
+              &nbsp;&nbsp;User Management
             </MenuButton>
             <MenuList>
-              <MenuItem>User Management</MenuItem>
+              <Link to="/users">
+                <MenuItem>User List</MenuItem>
+              </Link>
             </MenuList>
           </Menu>
         </Flex>
